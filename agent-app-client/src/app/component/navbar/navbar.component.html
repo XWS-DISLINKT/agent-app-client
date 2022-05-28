@@ -1,0 +1,16 @@
+<mat-toolbar style="height: 7%; padding-inline: 15%; background-color: white; 
+box-shadow: 2px 2px 10px #e6e6e6;" >
+    <img style="width: 2.5%; border-radius: 10%;" src="../../../assets/images/JobLab-logo.jpg">
+    
+    <span style="margin-left: 1%; margin-right: 5%; ">JobLab</span>
+    
+    <button mat-button [routerLink]="['/companies']">Companies</button>
+    <button mat-button [routerLink]="['']">Job offers</button>
+    
+    <span class="example-spacer"></span>
+    <button *ngIf="isAuthenticated" mat-button>Sign Out</button>
+    
+    <button *ngIf="!isAuthenticated" mat-button [routerLink]="['/registration']" >Register</button>
+    <button *ngIf="!isAuthenticated" mat-stroked-button  [routerLink]="['/login']"  color="warn">Sign In</button>
+
+</mat-toolbar>
