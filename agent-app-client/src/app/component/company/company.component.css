@@ -55,3 +55,14 @@
     width: 50px;
     background-color: #F04D53;
 }
+
+mat-progress-bar{
+    width: 70%;
+    /* width:20%; */
+    height: 20px;
+    margin-right:1%;
+}
+
+p {
+    font-weight: 300;
+}

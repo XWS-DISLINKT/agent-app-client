@@ -16,8 +16,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatTabsModule } from '@angular/material/tabs';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
@@ -50,6 +50,7 @@ import { CompanyComponent } from './component/company/company.component';
     MatAutocompleteModule,
     MatChipsModule,
     MatTabsModule,
+    MatProgressBarModule,
     FormsModule,
     ReactiveFormsModule
     

@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompanyComponent implements OnInit {
   text: string = "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio."
-
+  easy = 9
+  medium = 68
+  hard = 23
   constructor() { }
 
   ngOnInit(): void {
