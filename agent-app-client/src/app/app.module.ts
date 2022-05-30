@@ -24,6 +24,7 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { CompaniesComponent } from './component/companies/companies.component';
 import { CompanyComponent } from './component/company/company.component';
 import { JobsComponent } from './component/jobs/jobs.component';
+import { CompanyRegistrationRequestsComponent } from './component/company-registration-requests/company-registration-requests.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { JobsComponent } from './component/jobs/jobs.component';
     NavbarComponent,
     CompaniesComponent,
     CompanyComponent,
-    JobsComponent
+    JobsComponent,
+    CompanyRegistrationRequestsComponent
   ],
   imports: [
     BrowserModule,
