@@ -8,7 +8,7 @@
         <div class="flex-container">
             <!-- INFO-->
             <div class="flex-item">
-                <h1 style="margin-top: 5%; font-size: 30px; font-weight: 400;">
+                <h1 style="margin-top: 5%; margin-inline: 1.5%;  font-size: 30px; font-weight: 400;">
                     Company Name
                 </h1>
                 <div style=" margin: 2%;" class="flex-container">
@@ -82,7 +82,7 @@
                                 <h4 style="font-size: 18px; padding-left:2%;"> (12 Comments)</h4>
                             </div>
                             <div class="flex-item" style="text-align: right;">
-                                <button mat-button color="warn">Leave a Comment</button>
+                                <button mat-button color="warn" (click)="openAddCommentModal()">Leave a Comment</button>
                             </div>
                         </div>
                         <div class="rectangle"></div>

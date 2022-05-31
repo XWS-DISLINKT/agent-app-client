@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { AddCommentComponent } from 'src/app/modal/add-comment/add-comment.component';
 
 @Component({
   selector: 'app-company',
@@ -10,9 +12,19 @@ export class CompanyComponent implements OnInit {
   easy = 9
   medium = 68
   hard = 23
-  constructor() { }
+  constructor(public matDialog: MatDialog) { }
 
   ngOnInit(): void {
+  }
+
+openAddCommentModal(): void {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.id = "add-comment-modal";
+    dialogConfig.height = "55%";
+    dialogConfig.width = "32%";
+    const modalDialog = this.matDialog.open(AddCommentComponent, dialogConfig);
+    
   }
 
 }

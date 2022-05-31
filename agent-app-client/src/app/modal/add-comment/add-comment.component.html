@@ -1,0 +1,41 @@
+<div class="profiles-container flex-container" style="padding: 2%; padding-inline: 3%;">
+    <div style="width: 100%;">
+        <div style=" margin-inline: 20%; text-align: center;">
+            <h2 style="font-size:22px; font-weight: 300; margin-bottom: 5%;">New Comment</h2>
+            <div class="rectangle"></div>
+        </div>
+        <br>
+        <form [formGroup]="form">
+            <div>
+                <mat-form-field appearance="legacy" style="width: 100%;">
+                    <mat-label>Rating</mat-label>
+                    <mat-select [formControl]="ratingCtrl">
+                        <mat-option value="5">5 - extremely satisfied</mat-option>
+                        <mat-option value="4">4 - satisfied</mat-option>
+                        <mat-option value="3">3 - okay</mat-option>
+                        <mat-option value="2">2 - not very satisfied</mat-option>
+                        <mat-option value="1">1 - not satisfied at all</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="legacy" style="width: 100%;">
+                    <mat-label>Title</mat-label>
+                    <input matInput formControlName="titleCtrl" required>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="legacy" style="width: 100%;">
+                    <mat-label>Comment</mat-label>
+                    <textarea matInput formControlName="contentCtrl"></textarea>
+                </mat-form-field>
+            </div>
+            <br>
+            <br>
+            <div style="text-align: center; width: 100%;">
+                <button mat-raised-button color="warn">Save</button>
+
+            </div>
+        </form>
+    </div>
+</div>
