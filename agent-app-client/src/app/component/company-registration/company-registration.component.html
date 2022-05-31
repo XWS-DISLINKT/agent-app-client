@@ -1,0 +1,73 @@
+<div class="overlay">
+    <section id="photo" class="d-flex flex-column justify-content-center">
+    </section>
+</div>
+
+<div class="center">
+    <div class="white-container" style="align-content: center; padding-top: 5%; padding-bottom: 5%;">
+        <div style=" margin-inline: 20%">
+            <h2 style="font-size:24px; font-weight: 200; margin-bottom: 7%;">Company Registration</h2>
+            <div class="rectangle"></div>
+        </div>
+
+        <br>
+        <form [formGroup]="form">
+            <div>
+                <mat-form-field>
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName="nameCtrl" required>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Number of Employees</mat-label>
+                    <mat-select [formControl]="employeesCtrl">
+                        <mat-option value="one">&lt; 20</mat-option>
+                        <mat-option value="two">21-50</mat-option>
+                        <mat-option value="two">51-100</mat-option>
+                        <mat-option value="two">101-250</mat-option>
+                        <mat-option value="two">251-500</mat-option>
+                        <mat-option value="two">501-1000</mat-option>
+                        <mat-option value="two">1000+</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Industry</mat-label>
+                    <input matInput formControlName="industryCtrl" required>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Website</mat-label>
+                    <input matInput formControlName="websiteCtrl" required>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="emailCtrl" required>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Phone Number</mat-label>
+                    <input matInput  formControlName="phoneNumberCtrl" required>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>About</mat-label>
+                    <textarea matInput formControlName="aboutCtrl"></textarea>
+                </mat-form-field>
+            </div>
+            <br>
+            <br>
+            <div style="text-align: center; width: 100%;">
+                <button mat-raised-button color="warn">Register</button>
+
+            </div>
+        </form>
+    </div>
+</div>
