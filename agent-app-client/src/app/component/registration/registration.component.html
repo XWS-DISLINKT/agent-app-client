@@ -1,0 +1,50 @@
+<div class="overlay">
+    <section id="photo" class="d-flex flex-column justify-content-center">
+    </section>
+</div>
+
+<div class="center">
+    <div class="white-container" style="align-content: center; padding-top: 5%; padding-bottom: 5%;">
+        <div style=" margin-inline: 20%; text-align: center;">
+            <h2 style="font-size:24px; font-weight: 200; margin-bottom: 7%;">Registration</h2>
+            <div class="rectangle"></div>
+        </div>
+
+        <br>
+        <form [formGroup]="form">
+            <div>
+                <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="emailCtrl" required>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="passwordCtrl" required>
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Repeat password</mat-label>
+                    <input matInput [type]="hide2 ? 'password' : 'text'" formControlName="passwordRepeatedCtrl" required>
+                    <button mat-icon-button matSuffix (click)="hide2 = !hide2" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide2">
+                        <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+            </div>
+            <div *ngIf="errorMessage" style="margin-inline: 20%; color: #F04D53;">
+                {{errorMessage}}
+            </div>
+            <br>
+            <br>
+            <div style="text-align: center; width: 100%;">
+                <button mat-raised-button color="warn" [disabled]="!form.valid" (click)="onRegister()">Register</button>
+
+            </div>
+        </form>
+    </div>
+</div>

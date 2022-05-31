@@ -26,6 +26,7 @@ import { CompanyComponent } from './component/company/company.component';
 import { JobsComponent } from './component/jobs/jobs.component';
 import { CompanyRegistrationRequestsComponent } from './component/company-registration-requests/company-registration-requests.component';
 import { CompanyRegistrationComponent } from './component/company-registration/company-registration.component';
+import { RegistrationComponent } from './component/registration/registration.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { CompanyRegistrationComponent } from './component/company-registration/c
     CompanyComponent,
     JobsComponent,
     CompanyRegistrationRequestsComponent,
-    CompanyRegistrationComponent
+    CompanyRegistrationComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
