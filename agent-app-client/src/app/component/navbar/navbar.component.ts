@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
   isAuthenticated = false;
-
+  role = 'ROLE_COMPANY_OWNER'
   constructor() { }
 
   ngOnInit(): void {

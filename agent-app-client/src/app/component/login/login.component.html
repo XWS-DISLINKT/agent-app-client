@@ -1,0 +1,38 @@
+<div class="overlay">
+    <section id="photo" class="d-flex flex-column justify-content-center">
+    </section>
+</div>
+
+<div class="center">
+    <div class="white-container" style="align-content: center; padding-top: 5%; padding-bottom: 5%;">
+        <div style=" margin-inline: 20%; text-align: center;">
+            <h2 style="font-size:24px; font-weight: 200; margin-bottom: 7%;">Sign In</h2>
+            <div class="rectangle"></div>
+        </div>
+
+        <br>
+        <form [formGroup]="form">
+            <div>
+                <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="emailCtrl" required>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="passwordCtrl" required>
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+            </div>
+            <br>
+            <br>
+            <div style="text-align: center; width: 100%;">
+                <button mat-raised-button color="warn" [disabled]="!form.valid" (click)="onSignIn()">Sign In</button>
+
+            </div>
+        </form>
+    </div>
+</div>
