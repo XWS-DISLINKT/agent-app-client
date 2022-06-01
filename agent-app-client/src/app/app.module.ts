@@ -30,6 +30,7 @@ import { RegistrationComponent } from './component/registration/registration.com
 import { LoginComponent } from './component/login/login.component';
 import { AddCommentComponent } from './modal/add-comment/add-comment.component';
 import { AddInterviewReviewComponent } from './modal/add-interview-review/add-interview-review.component';
+import { AddSalaryReviewComponent } from './modal/add-salary-review/add-salary-review.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { AddInterviewReviewComponent } from './modal/add-interview-review/add-in
     RegistrationComponent,
     LoginComponent,
     AddCommentComponent,
-    AddInterviewReviewComponent
+    AddInterviewReviewComponent,
+    AddSalaryReviewComponent
   ],
   imports: [
     BrowserModule,
