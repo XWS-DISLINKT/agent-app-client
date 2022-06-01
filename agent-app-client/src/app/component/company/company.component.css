@@ -66,3 +66,9 @@ mat-progress-bar{
 p {
     font-weight: 300;
 }
+
+.salary-div {
+    text-align: center; 
+    font-weight: 300; 
+    font-size: larger;
+}

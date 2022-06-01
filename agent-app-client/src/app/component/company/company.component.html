@@ -211,70 +211,94 @@
 
             <!-- SALARY-->
             <mat-tab label="Salary">
-                <div style="margin-bottom: 10%;">
-                    <div class="flex-container">
-                        <div class="flex-item3">
-                            <div class="white-container " style="padding: 3%; padding-inline: 4%;">
-                                <h2
-                                    style="margin: 1%; font-size: 24px; font-weight: 400; width:100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; ">
-                                    Continental
-                                </h2>
-                                <div class="flex-container" style="padding-inline: 4%;">
-                                    <h3 style="font-weight: 400; margin-bottom:5px; font-size: 18px;">4.3</h3>
-                                    <mat-icon color="primary">star</mat-icon>
-                                    <h4 style="font-size: 14px; padding-left:3%;"> (312)</h4>
-                                </div>
-                                <div style=" margin: 1%;" class="flex-container">
-                                    <div style="width: 120px; font-weight: 300;">Offices: </div>Novi Sad, Beograd
-                                </div>
-                                <div style=" margin: 1%;" class="flex-container">
-                                    <div style="width: 120px; font-weight: 300;">Employees: </div>251-500
-                                </div>
-                                <div style=" margin: 1%;" class="flex-container">
-                                    <div style="width: 120px; font-weight: 300;">Industry: </div> Engineering
-                                </div>
-                                <br>
-                                <div>
-                                    <p>ext</p>
-                                </div>
-                                <br>
-                                <button mat-raised-button color="warn"
-                                    style="margin-inline:40%; width: 20%; margin-block: 2%;"
-                                    [routerLink]="['/company/id']">View</button>
+                
+                <div style="margin-bottom: 10%; margin-top: 5%;">
+                    <div style="padding-bottom: 2%; padding-inline: 0%; margin-bottom: 1%;">
+
+                        <div class="flex-container">
+                            <div class="flex-container flex-item" style="padding-inline: 0%;">
+                                <h3 style="font-weight: 400; margin-bottom:5px; font-size: 24px;"><span
+                                        style="font-weight: 300; margin-right: 10px">7 Positions Reviewed:</span></h3>
+                            </div>
+                            <div class="flex-item" style="text-align: right;">
+                                <button mat-button color="warn" (click)="openAddSalaryReviewModal()">New Salary Review</button>
                             </div>
                         </div>
-                        <div class="flex-item3">
-                            <div class="white-container " style="padding: 3%; padding-inline: 4%;">
-                                <h2
-                                    style="margin: 1%; font-size: 24px; font-weight: 400; width:100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; ">
-                                    Engineering Software Lab
-                                </h2>
-                                <div class="flex-container" style="padding-inline: 4%;">
-                                    <h3 style="font-weight: 400; margin-bottom:5px; font-size: 18px;">4.3</h3>
-                                    <mat-icon color="primary">star</mat-icon>
-                                    <h4 style="font-size: 14px; padding-left:3%;"> (312)</h4>
-                                </div>
-                                <div style=" margin: 1%;" class="flex-container">
-                                    <div style="width: 120px; font-weight: 300;">Offices: </div>Beograd
-                                </div>
-                                <div style=" margin: 1%;" class="flex-container">
-                                    <div style="width: 120px; font-weight: 300;">Employees: </div>101-250
-                                </div>
-                                <div style=" margin: 1%;" class="flex-container">
-                                    <div style="width: 120px; font-weight: 300;">Industry: </div> IT Services
-                                </div>
-                                <br>
-                                <div>
-                                    <p>text</p>
-                                </div>
-                                <br>
-                                <button mat-raised-button color="warn"
-                                    style="margin-inline:40%; width: 20%; margin-block: 2%;"
-                                    [routerLink]="['/company/id']">View</button>
+                        <div class="rectangle"></div>
+                        <br>
+                        <div class="flex-container" style="margin-inline: 4%; margin-block: 1.5%;">
+                            <div class="salary-div" style="font-weight: 400; text-align: left; width: 40%;">
+                                Working position
+                            </div>
+                            <div class="salary-div" style="font-weight: 400; width: 25%;">
+                                avg. Salary<span style="font-size: 24px; font-weight: 300; margin-inline: 10px"> | </span>min. - max. 
+                            </div>
+
+                        </div>
+                        <div class="flex-container white-container" style="padding-block: 1.5%; padding-inline: 3%; margin: 0.5%;">
+                            <div class="salary-div" style="text-align: left; width: 40%;">
+                                Full-Stack Developer (Junior)
+                            </div>
+                            <div class="salary-div" style="width: 30%;">
+                                1400&nbsp;&euro;<span style="font-size: 24px; font-weight: 300; margin-inline: 10px"> | </span>700&nbsp;&euro; - 2000&nbsp;&euro;
+                            </div>
+                            <div class="salary-div" style="text-align: right;width: 30%;">
+                                (6 reviews)
                             </div>
                         </div>
+                        <div class="flex-container white-container" style="padding-block: 1.5%; padding-inline: 3%; margin: 0.5%;">
+                            <div class="salary-div" style="text-align: left; width: 40%;">
+                                Software Engineer (Junior)
+                            </div>
+                            <div class="salary-div" style="width: 30%;">
+                                800&nbsp;&euro;<span style="font-size: 24px; font-weight: 300; margin-inline: 10px"> | </span>600&nbsp;&euro; - 1200&nbsp;&euro;
+                            </div>
+                            <div class="salary-div" style="text-align: right;width: 30%;">
+                                (4 reviews)
+                            </div>
+                        </div>
+                        <div class="flex-container white-container" style="padding-block: 1.5%; padding-inline: 3%; margin: 0.5%;">
+                            <div class="salary-div" style="text-align: left; width: 40%;">
+                                Java Devloper (Senior)
+                            </div>
+                            <div class="salary-div" style="width: 30%;">
+                                1400&nbsp;&euro;<span style="font-size: 24px; font-weight: 300; margin-inline: 10px"> | </span>1000&nbsp;&euro; - 2000&nbsp;&euro;
+                            </div>
+                            <div class="salary-div" style="text-align: right;width: 30%;">
+                                (3 reviews)
+                            </div>
+                        </div>
+                        <div class="flex-container white-container" style="padding-block: 1.5%; padding-inline: 3%; margin: 0.5%;">
+                            <div class="salary-div" style="text-align: left; width: 40%;">
+                                Working position
+                            </div>
+                            <div class="salary-div" style="width: 30%;">
+                                1400&nbsp;&euro;<span style="font-size: 24px; font-weight: 300; margin-inline: 10px"> | </span>700&nbsp;&euro; - 2000&nbsp;&euro;
+                            </div>
+                            <div class="salary-div" style="text-align: right;width: 30%;">
+                                (1 reviews)
+                            </div>
+                        </div>
+                        <div class="flex-container white-container" style="padding-block: 1.5%; padding-inline: 3%; margin: 0.5%;">
+                            <div class="salary-div" style="text-align: left; width: 40%;">
+                                Working position
+                            </div>
+                            <div class="salary-div" style="width: 30%;">
+                                1400&nbsp;&euro;<span style="font-size: 24px; font-weight: 300; margin-inline: 10px"> | </span>700&nbsp;&euro; - 2000&nbsp;&euro;
+                            </div>
+                            <div class="salary-div" style="text-align: right;width: 30%;">
+                                (1 reviews)
+                            </div>
+                        </div>
+                        
 
+                        <div class="flex-container">
+                            <div>
+                                <div class="white-container " style="padding: 5%; padding-inline: 4%;">
+                                </div>
+                            </div>
 
+                        </div>
                     </div>
                 </div>
             </mat-tab>
@@ -283,33 +307,6 @@
             <mat-tab label="Interview & Selection Process">
                 <div style="margin-bottom: 10%; margin-top: 6%;">
                     <div style="padding-bottom: 2%; padding-inline: 0%; margin-bottom: 1%;">
-                        <!-- <div class="flex-container">
-
-                            <div class="flex-container flex-item" style="padding-inline: 0%;">
-                                <h3 style="font-weight: 400; margin-bottom:5px; font-size: 24px;"><span
-                                        style="font-weight: 300; margin-right: 10px">Rating:</span> 4.3 </h3>
-                                <mat-icon color="primary">star</mat-icon>
-                                <h4 style="font-size: 18px; padding-left:2%;"> (12 Comments)</h4>
-                            </div>
-                            <div class="flex-item" style="text-align: right;">
-                                <button mat-button color="warn">Leave a comment</button>
-                            </div>
-                        </div> 
-                        <br>
-                        <div class="flex-container" style="font-size: 16px;">
-                            <div style="width: 100px; ">Hard</div>
-                            <mat-progress-bar mode="determinate" [value]="hard"></mat-progress-bar> {{hard}}%
-                        </div><br>
-                        <div class="flex-container" style="font-size: 16px;">
-                            <div style="width: 100px; ">Medium </div>
-                            <mat-progress-bar mode="determinate" [value]="medium"></mat-progress-bar> {{medium}}%
-                        </div><br>
-                        <div class="flex-container" style="font-size: 16px;">
-                            <div style="width: 100px; ">Easy </div>
-                            <mat-progress-bar mode="determinate" [value]="easy"></mat-progress-bar> {{easy}}%
-                        </div><br><br>
-                    
-                    -->
                         <div class="flex-container ">
                             <div class="flex-item3" style="text-align: center; padding-block: 6%;">
                                 <h3
@@ -321,7 +318,6 @@
                                         Rating</span>
                                 </div>
                             </div>
-
                             <br>
                             <div class="flex-item3">
                                 <div class="flex-container" style="font-size: 16px;">
@@ -338,7 +334,6 @@
                                     <mat-progress-bar mode="determinate" [value]="easy"></mat-progress-bar> {{easy}}%
                                 </div><br>
                             </div>
-
                             <div class="flex-item3" style="text-align: center; padding-block: 6%;">
                                 <div class=" flex-container ">
                                     <h3
@@ -352,8 +347,9 @@
                             </div>
                         </div>
                         <br>
-                        <div class="flex-container">
 
+
+                        <div class="flex-container">
                             <div class="flex-container flex-item" style="padding-inline: 0%;">
                                 <h3 style="font-weight: 400; margin-bottom:5px; font-size: 24px;"><span
                                         style="font-weight: 300; margin-right: 10px">13 Comments:</span></h3>
@@ -364,6 +360,7 @@
                         </div>
                         <div class="rectangle"></div>
                         <br>
+
                         <div class="flex-container">
                             <div class="flex-item">
                                 <div class="white-container " style="padding: 3%; padding-inline: 4%;">
