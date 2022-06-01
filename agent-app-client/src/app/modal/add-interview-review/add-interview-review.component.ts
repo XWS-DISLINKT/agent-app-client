@@ -22,15 +22,15 @@ export class AddInterviewReviewComponent implements OnInit {
     this.titleCtrl = new FormControl("", [Validators.required]);
     this.contentCtrl = new FormControl("", [Validators.required]);
     this.difficultyCtrl = new FormControl("", [Validators.required]);
-    this.hrInterviewCtrl = new FormControl("", [Validators.required]);
-    this.technicalInterviewCtrl = new FormControl("", [Validators.required]);
+    this.hrInterviewCtrl = new FormControl("", []);
+    this.technicalInterviewCtrl = new FormControl("", []);
 
     this.form = new FormGroup({
       'ratingCtrl': this.ratingCtrl,
       'titleCtrl': this.titleCtrl,
       'contentCtrl': this.contentCtrl,
       'difficultyCtrl': this.difficultyCtrl,
-      'hrInterviewCtrl': this.contentCtrl,
+      'hrInterviewCtrl': this.hrInterviewCtrl,
       'technicalInterviewCtrl': this.technicalInterviewCtrl,
     })
   }

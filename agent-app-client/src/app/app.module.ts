@@ -16,7 +16,9 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatTabsModule } from '@angular/material/tabs';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -31,6 +33,7 @@ import { LoginComponent } from './component/login/login.component';
 import { AddCommentComponent } from './modal/add-comment/add-comment.component';
 import { AddInterviewReviewComponent } from './modal/add-interview-review/add-interview-review.component';
 import { AddSalaryReviewComponent } from './modal/add-salary-review/add-salary-review.component';
+import { AddJobComponent } from './modal/add-job/add-job.component';
 
 
 @NgModule({
@@ -46,7 +49,8 @@ import { AddSalaryReviewComponent } from './modal/add-salary-review/add-salary-r
     LoginComponent,
     AddCommentComponent,
     AddInterviewReviewComponent,
-    AddSalaryReviewComponent
+    AddSalaryReviewComponent,
+    AddJobComponent
   ],
   imports: [
     BrowserModule,
@@ -61,12 +65,14 @@ import { AddSalaryReviewComponent } from './modal/add-salary-review/add-salary-r
     MatSnackBarModule,
     MatIconModule,
     MatSelectModule,
+    MatNativeDateModule,
     MatMenuModule,
     MatDividerModule,
     MatAutocompleteModule,
     MatChipsModule,
     MatTabsModule,
     MatProgressBarModule,
+    MatDatepickerModule,
     FormsModule,
     ReactiveFormsModule
     

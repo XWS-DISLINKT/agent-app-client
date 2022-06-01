@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AddCommentComponent } from 'src/app/modal/add-comment/add-comment.component';
 import { AddInterviewReviewComponent } from 'src/app/modal/add-interview-review/add-interview-review.component';
+import { AddJobComponent } from 'src/app/modal/add-job/add-job.component';
 import { AddSalaryReviewComponent } from 'src/app/modal/add-salary-review/add-salary-review.component';
 
 @Component({
@@ -44,5 +45,14 @@ export class CompanyComponent implements OnInit {
     dialogConfig.height = "400px";
     dialogConfig.width = "32%";
     const modalDialog = this.matDialog.open(AddSalaryReviewComponent, dialogConfig);
+  }
+
+  openAddJobModal(): void {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.id = "add-comment-modal";
+    dialogConfig.height = "600px";
+    dialogConfig.width = "32%";
+    const modalDialog = this.matDialog.open(AddJobComponent, dialogConfig);
   }
 }
