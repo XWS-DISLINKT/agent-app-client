@@ -29,6 +29,7 @@ import { CompanyRegistrationComponent } from './component/company-registration/c
 import { RegistrationComponent } from './component/registration/registration.component';
 import { LoginComponent } from './component/login/login.component';
 import { AddCommentComponent } from './modal/add-comment/add-comment.component';
+import { AddInterviewReviewComponent } from './modal/add-interview-review/add-interview-review.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { AddCommentComponent } from './modal/add-comment/add-comment.component';
     CompanyRegistrationComponent,
     RegistrationComponent,
     LoginComponent,
-    AddCommentComponent
+    AddCommentComponent,
+    AddInterviewReviewComponent
   ],
   imports: [
     BrowserModule,

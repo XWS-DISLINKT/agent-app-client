@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AddCommentComponent } from 'src/app/modal/add-comment/add-comment.component';
+import { AddInterviewReviewComponent } from 'src/app/modal/add-interview-review/add-interview-review.component';
 
 @Component({
   selector: 'app-company',
@@ -17,14 +18,22 @@ export class CompanyComponent implements OnInit {
   ngOnInit(): void {
   }
 
-openAddCommentModal(): void {
+  openAddCommentModal(): void {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.id = "add-comment-modal";
-    dialogConfig.height = "55%";
+    dialogConfig.height = "480px";
     dialogConfig.width = "32%";
     const modalDialog = this.matDialog.open(AddCommentComponent, dialogConfig);
-    
+
   }
 
+  openAddInterviewReviewModal(): void {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.id = "add-comment-modal";
+    dialogConfig.height = "650px";
+    dialogConfig.width = "32%";
+    const modalDialog = this.matDialog.open(AddInterviewReviewComponent, dialogConfig);
+  }
 }

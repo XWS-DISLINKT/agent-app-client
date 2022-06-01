@@ -1,7 +1,7 @@
 <div class="profiles-container flex-container" style="padding: 2%; padding-inline: 3%;">
     <div style="width: 100%;">
         <div style=" margin-inline: 20%; text-align: center;">
-            <h2 style="font-size:22px; font-weight: 300; margin-bottom: 5%;">New Comment</h2>
+            <h2 style="font-size:22px; font-weight: 300; margin-bottom: 5%;">New Interview Review</h2>
             <div class="rectangle"></div>
         </div>
         <br>
@@ -20,21 +20,36 @@
             </div>
             <div>
                 <mat-form-field appearance="legacy" style="width: 100%;">
+                    <mat-label>Difficulty</mat-label>
+                    <mat-select [formControl]="difficultyCtrl">
+                        <mat-option value="1">Easy</mat-option>
+                        <mat-option value="2">Medium</mat-option>
+                        <mat-option value="3">Hard</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="legacy" style="width: 100%;">
                     <mat-label>Title</mat-label>
                     <input matInput formControlName="titleCtrl" required>
                 </mat-form-field>
             </div>
             <div>
                 <mat-form-field appearance="legacy" style="width: 100%;">
-                    <mat-label>Comment</mat-label>
-                    <textarea matInput formControlName="contentCtrl" style="height:100px;"></textarea>
+                    <mat-label>HR interview</mat-label>
+                    <textarea matInput formControlName="hrInterviewCtrl" style="height: 85px;"></textarea>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="legacy" style="width: 100%;">
+                    <mat-label>Technical Interview</mat-label>
+                    <textarea matInput formControlName="technicalInterviewCtrl" style="height: 85px;"></textarea>
                 </mat-form-field>
             </div>
             <br>
             <br>
             <div style="text-align: center; width: 100%;">
                 <button mat-raised-button color="warn">Save</button>
-
             </div>
         </form>
     </div>
