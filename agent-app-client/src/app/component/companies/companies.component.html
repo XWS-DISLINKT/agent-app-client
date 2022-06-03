@@ -7,93 +7,36 @@
     <br>
     <br>
     <div class="flex-container">
-        <!-- <div class="flex-item">
-            <div class="company-container " style="padding: 3%; padding-inline: 4%;">
-
-                <div class="flex-container" style="padding-inline: 0%; width: 100%;">
-                    <div style="width: 75%;">
-                        <h2 style="margin: 1%; font-size: 24px; font-weight: 400; width:100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; ">
-                            Continental
-                        </h2>
-                    </div>
-                    <div class="flex-container" style="width: 25%; margin-top: 1%;">
-                        <span><h3 style="font-weight: 400; margin-bottom:5px; font-size: 18px;">4.3</h3></span>
-                        <span><mat-icon color="primary">star</mat-icon></span>
-                        <span><h4 style="font-size: 14px; padding-left:20%;"> (312)</h4></span>
-                    </div>
-                </div>
-
-                <div style=" margin: 1%;" class="flex-container">
-                    <div style="width: 120px; font-weight: 300;">Kancelarije: </div>Novi Sad, Beograd
-                </div>
-                <div style=" margin: 1%;" class="flex-container">
-                    <div style="width: 120px; font-weight: 300;">Zaposleni: </div>251-500
-                </div>
-                <div style=" margin: 1%;" class="flex-container">
-                    <div style="width: 120px; font-weight: 300;">Industrija: </div> Engineering
-                </div>
-                <br>
-                <button mat-raised-button color="warn"
-                    style="margin-inline:40%; width: 20%; margin-block: 2%;">View</button>
-            </div>
-        </div> -->
-        <!-- <div class="flex-item">
-            <div class="company-container " style="padding: 3%; padding-inline: 4%;">
-                <h2 style="margin: 1%; font-size: 24px; font-weight: 400; width:100%; white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis; ">
-                    Engineering Software Lab
-                </h2>
-                <div class="flex-container" style="padding-inline: 4%;">
-                    <h3 style="font-weight: 400; margin-bottom:5px; font-size: 18px;">4.3</h3>
-                    <mat-icon color="primary">star</mat-icon>
-                    <h4 style="font-size: 14px; padding-left:3%;"> (312)</h4>
-                </div>
-
-
-                <div style=" margin: 1%;" class="flex-container">
-                    <div style="width: 120px; font-weight: 300;">Kancelarije: </div>Novi Sad, Beograd
-                </div>
-                <div style=" margin: 1%;" class="flex-container">
-                    <div style="width: 120px; font-weight: 300;">Zaposleni: </div>251-500
-                </div>
-                <div style=" margin: 1%;" class="flex-container">
-                    <div style="width: 120px; font-weight: 300;">Industrija: </div> Engineering
-                </div>
-                <br>
-                <button mat-raised-button color="warn"
-                    style="margin-inline:40%; width: 20%; margin-block: 2%;">View</button>
-            </div>
-        </div> -->
-        <div class="flex-item">
+      
+        <div class="flex-item" *ngFor="let company of companies">
             <div class="company-container " style="padding: 3%; padding-inline: 4%;">
                 <h2 style="margin: 1%; font-size: 24px; font-weight: 400; width:100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; ">
-                    Continental
+                    {{company.name}}
                 </h2>
                 <div class="flex-container" style="padding-inline: 4%;">
-                    <h3 style="font-weight: 400; margin-bottom:5px; font-size: 18px;">4.3</h3>
+                    <h3 style="font-weight: 400; margin-bottom:5px; font-size: 18px;">{{company.rating | number : '1.2-2'}}</h3>
                     <mat-icon color="primary">star</mat-icon>
                     <h4 style="font-size: 14px; padding-left:3%;"> (312)</h4>
                 </div>
                 <div style=" margin: 1%;" class="flex-container">
-                    <div style="width: 120px; font-weight: 300;">Offices: </div>Novi Sad, Beograd
+                    <div style="width: 120px; font-weight: 300;">Offices: </div>{{company.location}}
                 </div>
                 <div style=" margin: 1%;" class="flex-container">
-                    <div style="width: 120px; font-weight: 300;">Employees: </div>251-500
+                    <div style="width: 120px; font-weight: 300;">Employees: </div>{{formatEmployeesNumberRange(company.employeesNumberRange)}}
                 </div>
                 <div style=" margin: 1%;" class="flex-container">
-                    <div style="width: 120px; font-weight: 300;">Industry: </div> Engineering
+                    <div style="width: 120px; font-weight: 300;">Industry: </div> {{company.industry}}
                 </div>
                 <br>
                 <div class="truncate" >
-                    <p>{{text}}</p>
+                    <p>{{company.about}}</p>
                 </div>
                 <br>
                 <button mat-raised-button color="warn"
                     style="margin-inline:40%; width: 20%; margin-block: 2%;" [routerLink]="['/company/id']">View</button>
             </div>
         </div>
-        <div class="flex-item">
+        <!-- <div class="flex-item">
             <div class="company-container " style="padding: 3%; padding-inline: 4%;">
                 <h2 style="margin: 1%; font-size: 24px; font-weight: 400; width:100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; ">
                     Engineering Software Lab
@@ -120,105 +63,9 @@
                 <button mat-raised-button color="warn"
                     style="margin-inline:40%; width: 20%; margin-block: 2%;" [routerLink]="['/company/id']">View</button>
             </div>
-        </div>
-        <div class="flex-item">
-            <div class="company-container " style="padding: 3%; padding-inline: 4%;">
-                <h2 style="margin: 1%; font-size: 24px; font-weight: 400; width:100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; ">
-                    Levi9
-                </h2>
-                <div class="flex-container" style="padding-inline: 4%;">
-                    <h3 style="font-weight: 400; margin-bottom:5px; font-size: 18px;">4.3</h3>
-                    <mat-icon color="primary">star</mat-icon>
-                    <h4 style="font-size: 14px; padding-left:3%;"> (312)</h4>
-                </div>
-                <div style=" margin: 1%;" class="flex-container">
-                    <div style="width: 120px; font-weight: 300;">Offices: </div>Novi Sad, Beograd, Zrenjanin
-                </div>
-                <div style=" margin: 1%;" class="flex-container">
-                    <div style="width: 120px; font-weight: 300;">Employees: </div>251-500
-                </div>
-                <div style=" margin: 1%;" class="flex-container">
-                    <div style="width: 120px; font-weight: 300;">Industry: </div> Software Outsourcing
-                </div>
-                <br>
-                <div class="truncate">
-                    <p>{{text}}</p>
-                </div>
-                <br>
-                <button mat-raised-button color="warn"
-                    style="margin-inline:40%; width: 20%; margin-block: 2%;" [routerLink]="['/company/id']">View</button>
-            </div>
-        </div>
-        <div class="flex-item">
-            <div class="company-container " style="padding: 3%; padding-inline: 4%;">
-                <h2 style="margin: 1%; font-size: 24px; font-weight: 400; width:100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; ">
-                    Schenider Electric
-                </h2>
-                <div class="flex-container" style="padding-inline: 4%;">
-                    <h3 style="font-weight: 400; margin-bottom:5px; font-size: 18px;">4.3</h3>
-                    <mat-icon color="primary">star</mat-icon>
-                    <h4 style="font-size: 14px; padding-left:3%;"> (103)</h4>
-                </div>
-                <div style=" margin: 1%;" class="flex-container">
-                    <div style="width: 120px; font-weight: 300;">Offices: </div>Novi Sad, Beograd
-                </div>
-                <div style=" margin: 1%;" class="flex-container">
-                    <div style="width: 120px; font-weight: 300;">Employees: </div>501-1000
-                </div>
-                <div style=" margin: 1%;" class="flex-container">
-                    <div style="width: 120px; font-weight: 300;">Industry: </div> Energy
-                </div>
-                <br>
-                <div class="truncate" >
-                    <p>{{text}}</p>
-                </div>
-                <br>
-                <button mat-raised-button color="warn"
-                    style="margin-inline:40%; width: 20%; margin-block: 2%;" [routerLink]="['/company/id']">View</button>
-            </div>
-        </div>
-        
-
-        <!-- <div class="flex-item">
-            <div class="company-container " style="padding: 3%; padding-inline: 4%;">
-                <h2 style="margin: 1%; font-size: 24px; font-weight: 400; width:100%; white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis; ">
-                    Continental
-                </h2>
-                <div class="flex-container" style="padding-inline: 4%;">
-                    <h3 style="font-weight: 400; margin-bottom:5px; font-size: 18px;">4.3</h3>
-                    <mat-icon color="primary">star</mat-icon>
-                    <h4 style="font-size: 14px; padding-left:3%;"> (312)</h4>
-                </div>
-
-
-                <div style=" margin: 1%;" class="flex-container">
-                    <div style="width: 120px; font-weight: 300;">Kancelarije: </div>Novi Sad, Beograd
-                </div>
-                <div style=" margin: 1%;" class="flex-container">
-                    <div style="width: 120px; font-weight: 300;">Zaposleni: </div>251-500
-                </div>
-                <div style=" margin: 1%;" class="flex-container">
-                    <div style="width: 120px; font-weight: 300;">Industrija: </div> Engineering
-                </div>
-                <br>
-                <button mat-raised-button color="warn"
-                    style="margin-inline:40%; width: 20%; margin-block: 2%;">View</button>
-            </div>
         </div> -->
-
-
+        
     </div>
-    <!-- <div class="company-container flex-container" style="padding: 2%; padding-inline: 3%;">
-        <h2 style="margin: 1%; font-size: 24px; font-weight: 400; width:28%;">About</h2>
-        <p style=" margin: 1%;font-weight: 300;">
-            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti
-            atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique
-            sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum
-            facilis est et expedita distinctio.
-        </p>
-    </div> -->
     <br>
     <br>
     <br>
