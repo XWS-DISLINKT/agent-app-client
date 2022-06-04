@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,7 @@ export class LoginComponent implements OnInit {
 
   public PASSWORD_PATTERN: string = "[0-9+ /]*";
 
-  constructor(private router: Router, private _snackBar: MatSnackBar) {
+  constructor(private router: Router, private _snackBar: MatSnackBar, private authService: AuthService) {
     this.emailCtrl = new FormControl("", [Validators.required, Validators.email]);
     this.passwordCtrl = new FormControl("", [Validators.required]);
 
@@ -35,7 +36,7 @@ export class LoginComponent implements OnInit {
 
   onSignIn() {
     if (this.form.valid) {
-      //TODO
+      this.authService.loginUser(this.emailCtrl.value, this.passwordCtrl.value)
     }
   }
 
