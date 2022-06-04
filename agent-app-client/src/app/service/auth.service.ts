@@ -34,4 +34,11 @@ export class AuthService {
   getUser(): Observable<UserDto>{
     return this._http.get<UserDto>(environment.apiUrl + "/auth", {headers: this.headers})
   }
+
+  registerUser(userEmail: string, userPassword: string) {
+    return this._http.post(environment.apiUrl + "/auth/signup", {
+      email: userEmail,
+      password: userPassword
+    });
+  }
 }
