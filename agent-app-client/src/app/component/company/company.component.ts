@@ -8,9 +8,11 @@ import { AddSalaryReviewComponent } from 'src/app/modal/add-salary-review/add-sa
 import { CommentDto } from 'src/app/model/CommentDto';
 import { CompanyDto } from 'src/app/model/CompanyDto';
 import { InterviewReviewDto } from 'src/app/model/InterviewReviewDto';
+import { JobDto } from 'src/app/model/JobDto';
 import { CommentService } from 'src/app/service/comment.service';
 import { CompanyService } from 'src/app/service/company.service';
 import { InterviewReviewService } from 'src/app/service/interview-review.service';
+import { JobService } from 'src/app/service/job.service';
 
 @Component({
   selector: 'app-company',
@@ -26,10 +28,11 @@ export class CompanyComponent implements OnInit {
   company: CompanyDto = {name: "", about:"", email:"", employeesNumberRange:"", id:0, industry:"", location:"", phoneNumber: "", rating:0};
   comments: CommentDto[] = []
   interviewReviews: InterviewReviewDto[] = []
+  jobs: JobDto[] = []
   interviewReviewRating: number = 0;
   selectionProcessDuration: number = 0;
 
-  constructor(public matDialog: MatDialog, private companyService: CompanyService, private commentService:CommentService, private interviewReviewService: InterviewReviewService, private route: ActivatedRoute) { }
+  constructor(public matDialog: MatDialog, private companyService: CompanyService, private jobService: JobService, private commentService:CommentService, private interviewReviewService: InterviewReviewService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     var ids = this.route.snapshot.paramMap.get('id');
@@ -39,6 +42,9 @@ export class CompanyComponent implements OnInit {
     }
     this.commentService.getComments(id).subscribe((response) => {
       this.comments = response;
+    })
+    this.jobService.getJobsForCompany(id).subscribe((response) => {
+      this.jobs = response;
     })
     this.interviewReviewService.getInterviewReviews(id).subscribe((response) => {
       this.interviewReviews = response;
