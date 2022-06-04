@@ -5,7 +5,9 @@ import { AddCommentComponent } from 'src/app/modal/add-comment/add-comment.compo
 import { AddInterviewReviewComponent } from 'src/app/modal/add-interview-review/add-interview-review.component';
 import { AddJobComponent } from 'src/app/modal/add-job/add-job.component';
 import { AddSalaryReviewComponent } from 'src/app/modal/add-salary-review/add-salary-review.component';
+import { CommentDto } from 'src/app/model/CommentDto';
 import { CompanyDto } from 'src/app/model/CompanyDto';
+import { CommentService } from 'src/app/service/comment.service';
 import { CompanyService } from 'src/app/service/company.service';
 
 @Component({
@@ -18,8 +20,11 @@ export class CompanyComponent implements OnInit {
   easy = 9
   medium = 68
   hard = 23
+
   company: CompanyDto = {name: "", about:"", email:"", employeesNumberRange:"", id:0, industry:"", location:"", phoneNumber: "", rating:0};
-  constructor(public matDialog: MatDialog, private companyService: CompanyService, private route: ActivatedRoute) { }
+  comments: CommentDto[] = []
+
+  constructor(public matDialog: MatDialog, private companyService: CompanyService, private commentService:CommentService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     var ids = this.route.snapshot.paramMap.get('id');
@@ -27,6 +32,9 @@ export class CompanyComponent implements OnInit {
     if(ids){
       id = +ids;
     }
+    this.commentService.getComments(id).subscribe((response) => {
+      this.comments = response;
+    })
     this.companyService.getCompany(id).subscribe((response) => {
       this.company = response;
     })

@@ -65,7 +65,7 @@
                                 <h3 style="font-weight: 400; margin-bottom:5px; font-size: 24px;"><span
                                         style="font-weight: 300; margin-right: 10px">Rating:</span> {{company.rating | number : '1.1-1'}} </h3>
                                 <mat-icon color="primary">star</mat-icon>
-                                <h4 style="font-size: 18px; padding-left:2%;"> (12 Comments)</h4>
+                                <h4 style="font-size: 18px; padding-left:2%;"> ({{comments.length}} Comments)</h4>
                             </div>
                             <div class="flex-item" style="text-align: right;">
                                 <button mat-button color="warn" (click)="openAddCommentModal()">Leave a Comment</button>
@@ -74,118 +74,26 @@
                         <div class="rectangle"></div>
                         <br>
                         <div class="flex-container">
-                            <div class="flex-item">
+                            <div class="flex-item"  *ngFor="let comment of comments">
                                 <div class="white-container " style="padding: 3%; padding-inline: 4%;">
 
                                     <div class="flex-container" style="padding-inline: 5%;">
                                         <p style="font-size: 12px; font-weight: 300;  ">
-                                            By <i><span style="font-weight: 400;"> user-email@gmail.com</span>,
-                                                14.05.2022.</i>
+                                            <i>By <span style="font-weight: 400;"> {{comment.authorEmail}}</span>,
+                                                {{ comment.datePosted | date: 'dd.MM.yyyy.' }}</i>
                                         </p>
                                     </div>
                                     <div class="flex-container" style="padding-inline: 1%;">
-                                        <h3 style="font-weight: 400; margin-bottom:5px; font-size: 20px;">5</h3>
-                                        <mat-icon color="primary">star</mat-icon><span
-                                            style="margin-inline: 3%; margin-top: 0.5%; font-weight: 600;">
-                                            &#183;</span>
-                                        <h3
-                                            style="font-size: 20px; font-weight: 400;  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; ">
-                                            Very satisfied
-                                        </h3>
-                                    </div>
-                                    <div>
-                                        <p> {{text}}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex-item">
-                                <div class="white-container " style="padding: 3%; padding-inline: 4%;">
-
-                                    <div class="flex-container" style="padding-inline: 5%;">
-                                        <p style="font-size: 12px; font-weight: 300;  ">
-                                            <i>By <span style="font-weight: 400;"> user-email@gmail.com</span>,
-                                                14.05.2022.</i>
-                                        </p>
-                                    </div>
-                                    <div class="flex-container" style="padding-inline: 1%;">
-                                        <h3 style="font-weight: 400; margin-bottom:5px; font-size: 20px;">5</h3>
+                                        <h3 style="font-weight: 400; margin-bottom:5px; font-size: 20px;">{{comment.rating}}</h3>
                                         <mat-icon color="primary">star</mat-icon><span
                                             style="margin-inline: 3%;margin-top: 0.5%; font-weight: 600;"> &#183;</span>
                                         <h3
                                             style="font-size: 20px; font-weight: 400;  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; ">
-                                            Very satisfied
+                                            {{comment.title}}
                                         </h3>
                                     </div>
                                     <div>
-                                        <p> {{text}}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex-item">
-                                <div class="white-container " style="padding: 3%; padding-inline: 4%;">
-
-                                    <div class="flex-container" style="padding-inline: 5%;">
-                                        <p style="font-size: 12px; font-weight: 300;  ">
-                                            By <span style="font-weight: 400;"> user-email@gmail.com,
-                                                <i>14.05.2022.</i></span>
-                                        </p>
-                                    </div>
-                                    <div class="flex-container" style="padding-inline: 1%;">
-                                        <h3 style="font-weight: 400; margin-bottom:5px; font-size: 20px;">5</h3>
-                                        <mat-icon color="primary">star</mat-icon><span
-                                            style="margin-inline: 3%; margin-top: 0.5%; font-weight: 600;">
-                                            &#183;</span>
-                                        <h3
-                                            style="font-size: 20px; font-weight: 400;  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; ">
-                                            Very satisfied
-                                        </h3>
-                                    </div>
-                                    <div>
-                                        <p> {{text}}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex-item">
-                                <div class="white-container " style="padding: 3%; padding-inline: 4%;">
-
-                                    <div class="flex-container" style="padding-inline: 5%;">
-                                        <p style="font-size: 12px; font-weight: 300;  ">
-                                            By <span style="font-weight: 400;"> user-email@gmail.com, 14.05.2022.</span>
-                                        </p>
-                                    </div>
-                                    <div class="flex-container" style="padding-inline: 1%;">
-                                        <h3 style="font-weight: 400; margin-bottom:5px; font-size: 20px;">5</h3>
-                                        <mat-icon color="primary">star</mat-icon><span
-                                            style="margin-inline: 3%;font-weight: 600;"> &#183;</span>
-                                        <h3
-                                            style="font-size: 20px; font-weight: 400;  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; ">
-                                            Very satisfied
-                                        </h3>
-                                    </div>
-                                    <div>
-                                        <p> {{text}}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex-item">
-                                <div class="white-container " style="padding: 3%; padding-inline: 4%;">
-
-                                    <div class="flex-container" style="padding-inline: 5%;">
-                                        <p style="font-size: 12px; font-weight: 300;  ">
-                                            By <span style="font-weight: 400;"> user-email@gmail.com</span>
-                                        </p>
-                                    </div>
-                                    <div class="flex-container" style="padding-inline: 1%;">
-                                        <h3 style="font-weight: 400; margin-bottom:5px; font-size: 20px;">5</h3>
-                                        <mat-icon color="primary">star</mat-icon><span
-                                            style="margin-inline: 3%;font-weight: 600;"> &#183;</span>
-                                        <h3
-                                            style="font-size: 20px; font-weight: 400;  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; ">
-                                            Very satisfied
-                                        </h3>
-                                    </div>
-                                    <div>
-                                        <p> {{text}}</p>
+                                        <p> {{comment.content}}</p>
                                     </div>
                                 </div>
                             </div>
