@@ -205,7 +205,7 @@
                             <div class="flex-item3" style="text-align: center; padding-block: 6%;">
                                 <h3
                                     style="margin-bottom: 15px; margin-left: 0%; font-weight: 400; margin-right:5px; font-size: 30px;">
-                                    4.3 <mat-icon color="primary">star</mat-icon>
+                                    {{interviewReviewRating | number : '1.1-1'}} <mat-icon color="primary">star</mat-icon>
                                 </h3>
                                 <div>
                                     <span style="font-weight: 300; margin-bottom:5px; font-size: 20px;"> Interview
@@ -216,23 +216,23 @@
                             <div class="flex-item3">
                                 <div class="flex-container" style="font-size: 16px;">
                                     <div style="width: 100px; ">Hard</div>
-                                    <mat-progress-bar mode="determinate" [value]="hard"></mat-progress-bar> {{hard}}%
+                                    <mat-progress-bar mode="determinate" [value]="hard"></mat-progress-bar> {{hard | number : '1.1-1'}}%
                                 </div><br>
                                 <div class="flex-container" style="font-size: 16px;">
                                     <div style="width: 100px; ">Medium </div>
                                     <mat-progress-bar mode="determinate" [value]="medium"></mat-progress-bar>
-                                    {{medium}}%
+                                    {{medium | number : '1.1-1'}}%
                                 </div><br>
                                 <div class="flex-container" style="font-size: 16px;">
                                     <div style="width: 100px; ">Easy </div>
-                                    <mat-progress-bar mode="determinate" [value]="easy"></mat-progress-bar> {{easy}}%
+                                    <mat-progress-bar mode="determinate" [value]="easy"></mat-progress-bar> {{easy | number : '1.1-1'}}%
                                 </div><br>
                             </div>
                             <div class="flex-item3" style="text-align: center; padding-block: 6%;">
                                 <div class=" flex-container ">
                                     <h3
                                         style="margin-bottom: 15px; margin-left: 42%; font-weight: 400; margin-right:5px; font-size: 30px;">
-                                        2.9 Weeks </h3>
+                                        {{selectionProcessDuration | number : '1.1-1'}} Weeks </h3>
                                 </div>
                                 <div>
                                     <span style="font-weight: 300; margin-bottom:5px; font-size: 20px;"> Selection
@@ -246,7 +246,7 @@
                         <div class="flex-container">
                             <div class="flex-container flex-item" style="padding-inline: 0%;">
                                 <h3 style="font-weight: 400; margin-bottom:5px; font-size: 24px;"><span
-                                        style="font-weight: 300; margin-right: 10px">13 Comments:</span></h3>
+                                        style="font-weight: 300; margin-right: 10px">{{interviewReviews.length}} Comments:</span></h3>
                             </div>
                             <div class="flex-item" style="text-align: right;">
                                 <button mat-button color="warn" (click)="openAddInterviewReviewModal()">Leave a Comment</button>
@@ -256,26 +256,27 @@
                         <br>
 
                         <div class="flex-container">
-                            <div class="flex-item">
+                            <div class="flex-item" *ngFor="let interviewReview of interviewReviews">
                                 <div class="white-container " style="padding: 3%; padding-inline: 4%;">
 
                                     <div class="flex-container" style="padding-inline: 5%;">
                                         <p style="font-size: 12px; font-weight: 300;  ">
-                                            By <i><span style="font-weight: 400;"> user-email@gmail.com</span>,
-                                                14.05.2022.</i>
+                                            
+                                            <i>By <span style="font-weight: 400;"> {{interviewReview.authorEmail}}</span>,
+                                                {{ interviewReview.datePosted | date: 'dd.MM.yyyy.'}}</i>
                                         </p>
                                     </div>
                                     <div class="flex-container" style="padding-inline: 1%;">
-                                        <h3 style="font-weight: 400; margin-bottom:5px; font-size: 20px;">5</h3>
+                                        <h3 style="font-weight: 400; margin-bottom:5px; font-size: 20px;">{{interviewReview.rating}}</h3>
                                         <mat-icon color="primary">star</mat-icon>
                                         <h3 style="font-size: 16px; font-weight: 300; ">
-                                            (Medium)
+                                            ({{interviewReview.difficulty | titlecase}})
                                         </h3>
                                         <span style="margin-inline: 3%; margin-top: 0.5%; font-weight: 600;">
                                             &#183;</span>
                                         <h3
                                             style="font-size: 20px; font-weight: 400;  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; ">
-                                            Very satisfied
+                                            {{interviewReview.title}}
                                         </h3>
                                     </div>
                                     <div>
@@ -283,7 +284,7 @@
                                             style="font-size: 20px; font-weight: 400;  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; ">
                                             HR Interview
                                         </h3>
-                                        <p> {{text}}</p>
+                                        <p> {{interviewReview.hrInterview}}</p>
                                     </div>
                                     <br>
                                     <div>
@@ -291,77 +292,7 @@
                                             style="font-size: 20px; font-weight: 400;  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; ">
                                             Technical Interview
                                         </h3>
-                                        <p> {{text}}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex-item">
-                                <div class="white-container " style="padding: 3%; padding-inline: 4%;">
-
-                                    <div class="flex-container" style="padding-inline: 5%;">
-                                        <p style="font-size: 12px; font-weight: 300;  ">
-                                            <i>By <span style="font-weight: 400;"> user-email@gmail.com</span>,
-                                                14.05.2022.</i>
-                                        </p>
-                                    </div>
-                                    <div class="flex-container" style="padding-inline: 1%;">
-                                        <h3 style="font-weight: 400; margin-bottom:5px; font-size: 20px;">5</h3>
-                                        <mat-icon color="primary">star</mat-icon><span
-                                            style="margin-inline: 3%;margin-top: 0.5%; font-weight: 600;"> &#183;</span>
-                                        <h3
-                                            style="font-size: 20px; font-weight: 400;  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; ">
-                                            Very satisfied
-                                        </h3>
-                                    </div>
-                                    <div>
-                                        <h3
-                                            style="font-size: 20px; font-weight: 400;  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; ">
-                                            HR Interview
-                                        </h3>
-                                        <p> {{text}}</p>
-                                    </div>
-                                    <br>
-                                    <div>
-                                        <h3
-                                            style="font-size: 20px; font-weight: 400;  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; ">
-                                            Technical Interview
-                                        </h3>
-                                        <p> {{text}}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex-item">
-                                <div class="white-container " style="padding: 3%; padding-inline: 4%;">
-
-                                    <div class="flex-container" style="padding-inline: 5%;">
-                                        <p style="font-size: 12px; font-weight: 300;  ">
-                                            By <span style="font-weight: 400;"> user-email@gmail.com</span>
-                                        </p>
-                                    </div>
-                                    <div class="flex-container" style="padding-inline: 1%;">
-                                        <h3 style="font-weight: 400; margin-bottom:5px; font-size: 20px;">5</h3>
-                                        <mat-icon color="primary">star</mat-icon><span
-                                            style="margin-inline: 3%;font-weight: 600;">
-                                            &#183;</span>
-                                        <h3
-                                            style="font-size: 20px; font-weight: 400;  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; ">
-                                            Very satisfied
-                                        </h3>
-                                    </div>
-                                    <div>
-                                        <h3
-                                            style="font-size: 20px; font-weight: 400;  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; ">
-                                            HR Interview
-                                        </h3>
-                                        <p> {{text}}</p>
-                                    </div>
-                                    <br>
-                                    <div>
-                                        <h3
-                                            style="font-size: 20px; font-weight: 400;  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; ">
-                                            Technical Interview
-                                        </h3>
-                                        <p> {{text}}</p>
+                                        <p> {{interviewReview.technicalInterview}}</p>
                                     </div>
                                 </div>
                             </div>
