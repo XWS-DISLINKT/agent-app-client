@@ -14,12 +14,12 @@
                     {{company.name}}
                 </h2>
                 <div class="flex-container" style="padding-inline: 4%;">
-                    <h3 style="font-weight: 400; margin-bottom:5px; font-size: 18px;">{{company.rating | number : '1.2-2'}}</h3>
+                    <h3 style="font-weight: 400; margin-bottom:5px; font-size: 18px;">{{company.rating | number : '1.1-1'}}</h3>
                     <mat-icon color="primary">star</mat-icon>
                     <h4 style="font-size: 14px; padding-left:3%;"> (312)</h4>
                 </div>
                 <div style=" margin: 1%;" class="flex-container">
-                    <div style="width: 120px; font-weight: 300;">Offices: </div>{{company.location}}
+                    <div style="width: 120px; font-weight: 300;">Office: </div>{{company.location}}
                 </div>
                 <div style=" margin: 1%;" class="flex-container">
                     <div style="width: 120px; font-weight: 300;">Employees: </div>{{formatEmployeesNumberRange(company.employeesNumberRange)}}
@@ -33,7 +33,7 @@
                 </div>
                 <br>
                 <button mat-raised-button color="warn"
-                    style="margin-inline:40%; width: 20%; margin-block: 2%;" [routerLink]="['/company/id']">View</button>
+                    style="margin-inline:40%; width: 20%; margin-block: 2%;" (click)="openCompanyPage(company.id)">View</button>
             </div>
         </div>
         <!-- <div class="flex-item">

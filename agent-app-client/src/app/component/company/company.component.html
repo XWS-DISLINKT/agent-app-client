@@ -9,16 +9,16 @@
             <!-- INFO-->
             <div class="flex-item">
                 <h1 style="margin-top: 5%; margin-inline: 1.5%;  font-size: 30px; font-weight: 400;">
-                    Company Name
+                    {{company.name}}
                 </h1>
                 <div style=" margin: 2%;" class="flex-container">
-                    <div style="width: 120px; font-weight: 300;">Offices: </div>Novi Sad, Beograd
+                    <div style="width: 120px; font-weight: 300;">Office: </div>{{company.location}}
                 </div>
                 <div style=" margin: 2%;" class="flex-container">
-                    <div style="width: 120px; font-weight: 300;">Employees: </div>251-500
+                    <div style="width: 120px; font-weight: 300;">Employees: </div>{{formatEmployeesNumberRange(company.employeesNumberRange)}}
                 </div>
                 <div style=" margin: 2%;" class="flex-container">
-                    <div style="width: 120px; font-weight: 300;">Industry: </div> Engineering
+                    <div style="width: 120px; font-weight: 300;">Industry: </div> {{company.industry}}
                 </div>
 
             </div>
@@ -30,10 +30,10 @@
                     <div style="width: 120px; font-weight: 300;">Website: </div>www.company-website.com
                 </div>
                 <div style="  margin-block: 2%;" class="flex-container">
-                    <div style="width: 120px; font-weight: 300;">E-mail: </div>support@company.com
+                    <div style="width: 120px; font-weight: 300;">E-mail: </div>{{company.email}}
                 </div>
                 <div style="  margin-block: 2%;" class="flex-container">
-                    <div style="width: 120px; font-weight: 300;">Phone number: </div> +381625563743
+                    <div style="width: 120px; font-weight: 300;">Phone number: </div> {{company.phoneNumber}}
                 </div>
 
             </div>
@@ -43,21 +43,7 @@
                 <h2 style="font-size:24px; font-weight: 200; margin-top: 1%; margin-bottom: 1.5%;">About us</h2>
                 <div class="rectangle"></div>
                 <br>
-                <p style=" margin: 0%;font-weight: 300;">
-                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-                    voluptatum deleniti
-                    atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non
-                    provident, similique
-                    sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum
-                    quidem rerum
-                    facilis est et expedita distinctio. At vero eos et accusamus et iusto odio dignissimos ducimus qui
-                    blanditiis praesentium
-                    voluptatum deleniti
-                    atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non
-                    provident, similique
-                    sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum
-                    quidem rerum
-                    facilis est et expedita distinctio.
+                <p style=" margin: 0%;font-weight: 300;">{{company.about}}
                 </p>
             </div>
         </div>
@@ -77,7 +63,7 @@
 
                             <div class="flex-container flex-item" style="padding-inline: 0%;">
                                 <h3 style="font-weight: 400; margin-bottom:5px; font-size: 24px;"><span
-                                        style="font-weight: 300; margin-right: 10px">Rating:</span> 4.3 </h3>
+                                        style="font-weight: 300; margin-right: 10px">Rating:</span> {{company.rating | number : '1.1-1'}} </h3>
                                 <mat-icon color="primary">star</mat-icon>
                                 <h4 style="font-size: 18px; padding-left:2%;"> (12 Comments)</h4>
                             </div>

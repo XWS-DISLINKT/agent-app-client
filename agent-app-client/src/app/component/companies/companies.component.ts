@@ -21,28 +21,18 @@ export class CompaniesComponent implements OnInit {
     })
   }
 
+  openCompanyPage(id: number): void {
+    this.router.navigate(['company', id]);
+  }
+
   formatEmployeesNumberRange(nr: string){
-    if(nr === "BELOW20"){
-      return "<20";
-    }
-    if(nr === "BELOW50"){
-      return "21-50";
-    }
-    if(nr === "BELOW100"){
-      return "51-100";
-    }
-    if(nr === "BELOW250"){
-      return "101-250";
-    }
-    if(nr === "BELOW500"){
-      return "251-500";
-    }
-    if(nr === "BELOW1000"){
-      return "501-1000";
-    }
-    if(nr === "ABOVE1000"){
-      return "1000+";
-    }
+    if(nr === "BELOW20"){ return "<20"; }
+    if(nr === "BELOW50"){ return "21-50"; }
+    if(nr === "BELOW100"){ return "51-100"; }
+    if(nr === "BELOW250"){ return "101-250"; }
+    if(nr === "BELOW500"){ return "251-500"; }
+    if(nr === "BELOW1000"){ return "501-1000"; }
+    if(nr === "ABOVE1000"){ return "1000+"; }
     return "";
   }
 

@@ -14,4 +14,12 @@ export class CompanyService {
   getCompanies() : Observable<CompanyDto[]> {
     return this._http.get<CompanyDto[]>(environment.apiUrl + "/company/approved");
   }
+
+  getCompany(id: number) : Observable<CompanyDto> {
+    return this._http.get<CompanyDto>(environment.apiUrl + "/company/"+id);
+  }
+
+  getCompanyRequests() : Observable<CompanyDto[]> {
+    return this._http.get<CompanyDto[]>(environment.apiUrl + "/company/unapproved");
+  }
 }

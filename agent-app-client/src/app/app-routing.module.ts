@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'registration', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
   { path: 'companies', component: CompaniesComponent },
-  { path: 'company/id', component: CompanyComponent },
+  { path: 'company/:id', component: CompanyComponent },
   { path: 'jobs', component: JobsComponent },
   { path: 'registration-requests', component: CompanyRegistrationRequestsComponent },
   { path: 'company-registration', component: CompanyRegistrationComponent }
