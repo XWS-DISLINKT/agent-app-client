@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  role = 'ROLE_CLIENT'
+  role = 'ROLE_ADMIN'
   constructor() { }
 
   ngOnInit(): void {

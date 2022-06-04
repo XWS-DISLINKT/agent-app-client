@@ -112,7 +112,7 @@
                         <div class="flex-container">
                             <div class="flex-container flex-item" style="padding-inline: 0%;">
                                 <h3 style="font-weight: 400; margin-bottom:5px; font-size: 24px;"><span
-                                        style="font-weight: 300; margin-right: 10px">7 Positions Reviewed:</span></h3>
+                                        style="font-weight: 300; margin-right: 10px">{{salaryReviews.length}} Positions Reviewed:</span></h3>
                             </div>
                             <div class="flex-item" style="text-align: right;">
                                 <button mat-button color="warn" (click)="openAddSalaryReviewModal()">New Salary Review</button>
@@ -129,59 +129,15 @@
                             </div>
 
                         </div>
-                        <div class="flex-container white-container" style="padding-block: 1.5%; padding-inline: 3%; margin: 0.5%;">
+                        <div class="flex-container white-container" style="padding-block: 1.5%; padding-inline: 3%; margin: 0.5%;" *ngFor="let sr of salaryReviews">
                             <div class="salary-div" style="text-align: left; width: 40%;">
-                                Full-Stack Developer (Junior)
+                                {{sr.position}} ({{sr.seniority | titlecase}})
                             </div>
                             <div class="salary-div" style="width: 30%;">
-                                1400&nbsp;&euro;<span style="font-size: 24px; font-weight: 300; margin-inline: 10px"> | </span>700&nbsp;&euro; - 2000&nbsp;&euro;
+                                {{sr.averageMonthlySalary | number : '1.0-0'}}&nbsp;&euro;<span style="font-size: 24px; font-weight: 300; margin-inline: 10px"> | </span>{{sr.minMonthlySalary}}&nbsp;&euro; - {{sr.maxMonthlySalary}}&nbsp;&euro;
                             </div>
                             <div class="salary-div" style="text-align: right;width: 30%;">
-                                (6 reviews)
-                            </div>
-                        </div>
-                        <div class="flex-container white-container" style="padding-block: 1.5%; padding-inline: 3%; margin: 0.5%;">
-                            <div class="salary-div" style="text-align: left; width: 40%;">
-                                Software Engineer (Junior)
-                            </div>
-                            <div class="salary-div" style="width: 30%;">
-                                800&nbsp;&euro;<span style="font-size: 24px; font-weight: 300; margin-inline: 10px"> | </span>600&nbsp;&euro; - 1200&nbsp;&euro;
-                            </div>
-                            <div class="salary-div" style="text-align: right;width: 30%;">
-                                (4 reviews)
-                            </div>
-                        </div>
-                        <div class="flex-container white-container" style="padding-block: 1.5%; padding-inline: 3%; margin: 0.5%;">
-                            <div class="salary-div" style="text-align: left; width: 40%;">
-                                Java Devloper (Senior)
-                            </div>
-                            <div class="salary-div" style="width: 30%;">
-                                1400&nbsp;&euro;<span style="font-size: 24px; font-weight: 300; margin-inline: 10px"> | </span>1000&nbsp;&euro; - 2000&nbsp;&euro;
-                            </div>
-                            <div class="salary-div" style="text-align: right;width: 30%;">
-                                (3 reviews)
-                            </div>
-                        </div>
-                        <div class="flex-container white-container" style="padding-block: 1.5%; padding-inline: 3%; margin: 0.5%;">
-                            <div class="salary-div" style="text-align: left; width: 40%;">
-                                Working position
-                            </div>
-                            <div class="salary-div" style="width: 30%;">
-                                1400&nbsp;&euro;<span style="font-size: 24px; font-weight: 300; margin-inline: 10px"> | </span>700&nbsp;&euro; - 2000&nbsp;&euro;
-                            </div>
-                            <div class="salary-div" style="text-align: right;width: 30%;">
-                                (1 reviews)
-                            </div>
-                        </div>
-                        <div class="flex-container white-container" style="padding-block: 1.5%; padding-inline: 3%; margin: 0.5%;">
-                            <div class="salary-div" style="text-align: left; width: 40%;">
-                                Working position
-                            </div>
-                            <div class="salary-div" style="width: 30%;">
-                                1400&nbsp;&euro;<span style="font-size: 24px; font-weight: 300; margin-inline: 10px"> | </span>700&nbsp;&euro; - 2000&nbsp;&euro;
-                            </div>
-                            <div class="salary-div" style="text-align: right;width: 30%;">
-                                (1 reviews)
+                                ({{sr.numberOfReviews}} reviews)
                             </div>
                         </div>
                         
@@ -310,7 +266,7 @@
                         <div class="flex-container">
                             <div class="flex-container flex-item" style="padding-inline: 0%;">
                                 <h3 style="font-weight: 400; margin-bottom:5px; font-size: 24px;"><span
-                                        style="font-weight: 300; margin-right: 10px">7 Open Positions:</span></h3>
+                                        style="font-weight: 300; margin-right: 10px">{{jobs.length}} Open Positions:</span></h3>
                             </div>
                             <div class="flex-item" style="text-align: right;">
                                 <button mat-button color="warn" (click)="openAddJobModal()">New Job</button>
