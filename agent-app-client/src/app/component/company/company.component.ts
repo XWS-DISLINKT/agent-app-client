@@ -5,6 +5,7 @@ import { AddCommentComponent } from 'src/app/modal/add-comment/add-comment.compo
 import { AddInterviewReviewComponent } from 'src/app/modal/add-interview-review/add-interview-review.component';
 import { AddJobComponent } from 'src/app/modal/add-job/add-job.component';
 import { AddSalaryReviewComponent } from 'src/app/modal/add-salary-review/add-salary-review.component';
+import { EditCompanyDescriptionComponent } from 'src/app/modal/edit-company-description/edit-company-description.component';
 import { CommentDto } from 'src/app/model/CommentDto';
 import { CompanyDto } from 'src/app/model/CompanyDto';
 import { InterviewReviewDto } from 'src/app/model/InterviewReviewDto';
@@ -75,7 +76,18 @@ export class CompanyComponent implements OnInit {
     })
   }
 
-  changeDescription(){}
+  changeDescription(){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.id = "add-comment-modal";
+    dialogConfig.height = "360px";
+    dialogConfig.width = "32%";
+    dialogConfig.data = { description: this.company.about }
+    const modalDialog = this.matDialog.open(EditCompanyDescriptionComponent, dialogConfig);
+    modalDialog.afterClosed().subscribe(result => {
+      location.reload()
+    })
+  }
 
   connectProfiles(){}
 

@@ -1,0 +1,24 @@
+<div class="profiles-container flex-container" style="padding: 2%; padding-inline: 3%;">
+    <div style="width: 100%;">
+        <div style=" margin-inline: 20%; text-align: center;">
+            <h2 style="font-size:22px; font-weight: 300; margin-bottom: 5%;">About Us</h2>
+            <div class="rectangle"></div>
+        </div>
+        <br>
+        <form [formGroup]="form">
+            
+            <div>
+                <mat-form-field appearance="legacy" style="width: 100%;">
+                    <mat-label>Description</mat-label>
+                    <textarea matInput formControlName="contentCtrl" style="height:100px;"></textarea>
+                </mat-form-field>
+            </div>
+            <br>
+            <br>
+            <div style="text-align: center; width: 100%;">
+                <button mat-raised-button color="warn" (click)="onSave()">Save</button>
+
+            </div>
+        </form>
+    </div>
+</div>

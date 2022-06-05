@@ -38,4 +38,8 @@ export class CompanyService {
       isApproved: isApproved
     }, {headers: this.headers});
   }
+
+  updateCompanyDescription(description: string){
+    return this._http.post(environment.apiUrl + "/company/description", description, {headers: this.headers});
+  }
 }
