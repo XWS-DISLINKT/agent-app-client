@@ -1,7 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { NewInterviewReviewDto } from 'src/app/model/NewInterviewReviewDto';
+import { InterviewReviewService } from 'src/app/service/interview-review.service';
+
+export interface DialogData {
+  companyId: number;
+}
 
 @Component({
   selector: 'app-add-interview-review',
@@ -17,13 +22,13 @@ export class AddInterviewReviewComponent implements OnInit {
   public hrInterviewCtrl: FormControl;
   public technicalInterviewCtrl: FormControl;
 
-  constructor(private router: Router, private _snackBar: MatSnackBar) {
+  constructor(private interviewReviewService: InterviewReviewService, @Inject(MAT_DIALOG_DATA) public data: DialogData,  public dialogRef: MatDialogRef<AddInterviewReviewComponent>) {
     this.ratingCtrl = new FormControl("", [Validators.required]);
     this.titleCtrl = new FormControl("", [Validators.required]);
     this.contentCtrl = new FormControl("", [Validators.required]);
     this.difficultyCtrl = new FormControl("", [Validators.required]);
-    this.hrInterviewCtrl = new FormControl("", []);
-    this.technicalInterviewCtrl = new FormControl("", []);
+    this.hrInterviewCtrl = new FormControl("");
+    this.technicalInterviewCtrl = new FormControl("");
 
     this.form = new FormGroup({
       'ratingCtrl': this.ratingCtrl,
@@ -36,6 +41,15 @@ export class AddInterviewReviewComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+  onSave() {
+    //if (this.form.valid) {
+      let dto: NewInterviewReviewDto = {companyId: this.data.companyId, title: this.titleCtrl.value, hrInterview: this.hrInterviewCtrl.value, technicalInterview: this.technicalInterviewCtrl.value, rating: this.ratingCtrl.value, difficulty: this.difficultyCtrl.value}
+      this.interviewReviewService.createInterviewReview(dto).subscribe((response) => {
+        this.dialogRef.close()
+      })
+
+    //}
   }
 
 }

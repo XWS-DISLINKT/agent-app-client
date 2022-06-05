@@ -1,7 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+
+export interface DialogData {
+  companyId: number;
+}
 
 @Component({
   selector: 'app-add-salary-review',
@@ -14,7 +19,7 @@ export class AddSalaryReviewComponent implements OnInit {
   public seniorityCtrl: FormControl;
   public salaryCtrl: FormControl;
 
-  constructor(private router: Router, private _snackBar: MatSnackBar) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData,  public dialogRef: MatDialogRef<AddSalaryReviewComponent>) {
     this.positionCtrl = new FormControl("", [Validators.required]);
     this.seniorityCtrl = new FormControl("", [Validators.required]);
     this.salaryCtrl = new FormControl("", [Validators.required]);

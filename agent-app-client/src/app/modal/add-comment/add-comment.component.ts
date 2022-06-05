@@ -41,7 +41,7 @@ export class AddCommentComponent implements OnInit {
       //console.log(this.data.companyId)
       let dto: NewCommentDto = {companyId: this.data.companyId, title: this.titleCtrl.value, content: this.contentCtrl.value, rating: this.ratingCtrl.value}
       this.commentService.createComment(dto).subscribe((response) => {
-        this.dialogRef.close();
+        this.dialogRef.close()
       })
 
     }
