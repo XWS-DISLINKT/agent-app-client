@@ -30,4 +30,9 @@ export class NavbarComponent implements OnInit {
       location.reload()});
   }
 
+  navigateToMyCompany(){
+    this.router.navigate(['/company/'+this.currentUser.companyId])
+    
+  }
+
 }

@@ -8,7 +8,7 @@ box-shadow: 2px 2px 10px #e0e5eb;" >
     <button mat-button [routerLink]="['/jobs']">Jobs</button>
     <button mat-button [routerLink]="['/registration-requests']" *ngIf="role == 'ROLE_ADMIN'">Registration Requests</button>
     <button mat-button [routerLink]="['/company-registration']" *ngIf="role == 'ROLE_CLIENT'">Company Registration</button>
-    <button mat-button [routerLink]="['/company/id']" *ngIf="role == 'ROLE_COMPANY_OWNER'">My Company</button>
+    <button mat-button (click)="navigateToMyCompany()" *ngIf="role == 'ROLE_COMPANY_OWNER'">My Company</button>
     
     <span class="example-spacer"></span>
     <button *ngIf="role" mat-button (click)="onLogOut()" [routerLink]="['/login']" >Sign Out</button>

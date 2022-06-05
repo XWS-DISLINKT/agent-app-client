@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { JobDto } from '../model/JobDto';
+import { NewJobDto } from '../model/NewJobDto';
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +21,8 @@ export class JobService {
 
   getJobs() : Observable<JobDto[]> {
     return this._http.get<JobDto[]>(environment.apiUrl + "/job");
+  }
+  createJob(dto: NewJobDto) {
+    return this._http.post(environment.apiUrl + "/job", dto, {headers: this.headers});
   }
 }

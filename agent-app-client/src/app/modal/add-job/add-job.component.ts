@@ -3,6 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { NewJobDto } from 'src/app/model/NewJobDto';
+import { JobService } from 'src/app/service/job.service';
 
 export interface DialogData {
   companyId: number;
@@ -22,7 +24,7 @@ export class AddJobComponent implements OnInit {
   public locationCtrl: FormControl;
   public descriptionCtrl: FormControl;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData,  public dialogRef: MatDialogRef<AddJobComponent>) {
+  constructor(private jobService: JobService, @Inject(MAT_DIALOG_DATA) public data: DialogData,  public dialogRef: MatDialogRef<AddJobComponent>) {
     this.positionCtrl = new FormControl("", [Validators.required]);
     this.seniorityCtrl = new FormControl("", [Validators.required]);
     this.dateCtrl = new FormControl("", [Validators.required]);
@@ -39,6 +41,16 @@ export class AddJobComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  onSave() {
+    if (this.form.valid) {
+      let dto: NewJobDto = {closingDate: this.dateCtrl.value, description: this.descriptionCtrl.value, location: this.locationCtrl.value, position: this.positionCtrl.value, seniority: this.seniorityCtrl.value}
+      this.jobService.createJob(dto).subscribe((response) => {
+        this.dialogRef.close()
+      })
+
+    }
   }
 
 }
