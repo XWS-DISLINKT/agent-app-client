@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/service/auth.service';
 })
 export class NavbarComponent implements OnInit {
   role = '';
-  currentUser : UserDto = {id: -1, email:"", role: "", companyId: -1}
+  currentUser : UserDto = {id: -1, email:"", role: "", companyId: -1, connectionToken: ""}
   constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
@@ -24,7 +24,7 @@ export class NavbarComponent implements OnInit {
   }
 
   onLogOut() {
-    this.currentUser = {id: -1, email:"", role: "", companyId: -1}
+    this.currentUser = {id: -1, email:"", role: "", companyId: -1, connectionToken: ""}
     localStorage.clear();
     this.router.navigate(['/login']).then(()=>{
       location.reload()});

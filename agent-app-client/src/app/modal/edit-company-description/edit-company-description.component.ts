@@ -21,13 +21,13 @@ export class EditCompanyDescriptionComponent implements OnInit {
 
     this.form = new FormGroup({
       'contentCtrl': this.contentCtrl,
-    })}
+    })
+  }
 
   ngOnInit(): void {
   }
   onSave() {
     if (this.form.valid) {
-      //let dto: NewCommentDto = {companyId: this.data.companyId, title: this.titleCtrl.value, content: this.contentCtrl.value, rating: this.ratingCtrl.value}
       this.companyService.updateCompanyDescription(this.contentCtrl.value).subscribe((response) => {
         this.dialogRef.close()
       })

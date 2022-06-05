@@ -5,6 +5,7 @@ import { AddCommentComponent } from 'src/app/modal/add-comment/add-comment.compo
 import { AddInterviewReviewComponent } from 'src/app/modal/add-interview-review/add-interview-review.component';
 import { AddJobComponent } from 'src/app/modal/add-job/add-job.component';
 import { AddSalaryReviewComponent } from 'src/app/modal/add-salary-review/add-salary-review.component';
+import { ConnectProfilesComponent } from 'src/app/modal/connect-profiles/connect-profiles.component';
 import { EditCompanyDescriptionComponent } from 'src/app/modal/edit-company-description/edit-company-description.component';
 import { CommentDto } from 'src/app/model/CommentDto';
 import { CompanyDto } from 'src/app/model/CompanyDto';
@@ -39,7 +40,7 @@ export class CompanyComponent implements OnInit {
   salaryReviewsNumber: number = 0;
   cid : number = 0;
   role = '';
-  currentUser : UserDto = {id: -1, email:"", role: "", companyId: -1}
+  currentUser : UserDto = {id: -1, email:"", role: "", companyId: -1, connectionToken: ""}
   
 
   constructor(public matDialog: MatDialog, private companyService: CompanyService, private authService: AuthService, private salaryReviewService: SalaryReviewService, private jobService: JobService, private commentService:CommentService, private interviewReviewService: InterviewReviewService, private route: ActivatedRoute) { }
@@ -89,7 +90,19 @@ export class CompanyComponent implements OnInit {
     })
   }
 
-  connectProfiles(){}
+  connectProfiles(){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.id = "add-comment-modal";
+    dialogConfig.height = "280px";
+    dialogConfig.width = "32%";
+    dialogConfig.data = { token: this.currentUser.connectionToken }
+    const modalDialog = this.matDialog.open(ConnectProfilesComponent, dialogConfig);
+    modalDialog.afterClosed().subscribe(result => {
+      location.reload()
+    })
+    
+  }
 
   formatEmployeesNumberRange(nr: string){
     if(nr === "BELOW20"){ return "<20"; }

@@ -36,6 +36,7 @@ import { AddInterviewReviewComponent } from './modal/add-interview-review/add-in
 import { AddSalaryReviewComponent } from './modal/add-salary-review/add-salary-review.component';
 import { AddJobComponent } from './modal/add-job/add-job.component';
 import { EditCompanyDescriptionComponent } from './modal/edit-company-description/edit-company-description.component';
+import { ConnectProfilesComponent } from './modal/connect-profiles/connect-profiles.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { EditCompanyDescriptionComponent } from './modal/edit-company-descriptio
     AddInterviewReviewComponent,
     AddSalaryReviewComponent,
     AddJobComponent,
-    EditCompanyDescriptionComponent
+    EditCompanyDescriptionComponent,
+    ConnectProfilesComponent
   ],
   imports: [
     BrowserModule,

@@ -43,4 +43,8 @@ export class AuthService {
       password: userPassword
     });
   }
+
+  connectProfiles(token: string){
+    return this._http.post(environment.apiUrl + "/auth/connect-accounts", token, {headers: this.headers});
+  }
 }
