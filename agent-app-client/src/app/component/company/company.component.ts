@@ -192,7 +192,7 @@ export class CompanyComponent implements OnInit {
     dialogConfig.id = "add-comment-modal";
     dialogConfig.height = "630px";
     dialogConfig.width = "32%";
-    dialogConfig.data = { companyId: this.cid, token: this.currentUser.connectionToken }
+    dialogConfig.data = { companyId: this.cid, token: this.currentUser.connectionToken, companyName: this.company.name }
     const modalDialog = this.matDialog.open(AddJobComponent, dialogConfig);
     modalDialog.afterClosed().subscribe(result => {
       location.reload()

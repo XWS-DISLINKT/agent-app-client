@@ -3,11 +3,13 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { NewJobDislinkedDto } from 'src/app/model/NewJobDislinkedDto';
 import { NewJobDto } from 'src/app/model/NewJobDto';
 import { JobService } from 'src/app/service/job.service';
 
 export interface DialogData {
   companyId: number;
+  companyName: string;
   token: string;
 }
 
@@ -55,8 +57,15 @@ export class AddJobComponent implements OnInit {
   onSave() {
     if (this.form.valid) {
       let dto: NewJobDto = {closingDate: this.dateCtrl.value, description: this.descriptionCtrl.value, location: this.locationCtrl.value, position: this.positionCtrl.value, seniority: this.seniorityCtrl.value}
+      let jobDislinked: NewJobDislinkedDto = {companyName: this.data.companyName, description: this.descriptionCtrl.value, location: this.locationCtrl.value, position: this.positionCtrl.value}
       this.jobService.createJob(dto).subscribe((response) => {
-        alert(this.shareCtrl.value)
+        console.log("added to agent app")
+        if(this.shareCtrl.value){
+            this.jobService.shareJob(jobDislinked, this.data.token).subscribe((res) => {
+              console.log("added to dislinked");
+            });
+            
+        }
         this.dialogRef.close()
       })
 
