@@ -9,7 +9,9 @@
             <!-- INFO-->
             <div class="flex-item">
                 <h1 style="margin-top: 5%; margin-inline: 1.5%;  font-size: 30px; font-weight: 400;">
-                    {{company.name}}
+                    {{company.name}} 
+                    <button mat-button color="warn" (click)="changeDescription()" *ngIf="currentUser.companyId == cid"> Connect profiles</button>
+                
                 </h1>
                 <div style=" margin: 2%;" class="flex-container">
                     <div style="width: 120px; font-weight: 300;">Office: </div>{{company.location}}
@@ -45,6 +47,7 @@
                 <br>
                 <p style=" margin: 0%;font-weight: 300;">{{company.about}}
                 </p>
+                <button mat-button color="warn" (click)="changeDescription()" *ngIf="currentUser.companyId == cid">Change Description</button>
             </div>
         </div>
 
@@ -68,7 +71,7 @@
                                 <h4 style="font-size: 18px; padding-left:2%;"> ({{comments.length}} Comments)</h4>
                             </div>
                             <div class="flex-item" style="text-align: right;">
-                                <button mat-button color="warn" (click)="openAddCommentModal()">Leave a Comment</button>
+                                <button mat-button color="warn" (click)="openAddCommentModal()" *ngIf="role == 'ROLE_CLIENT'">Leave a Comment</button>
                             </div>
                         </div>
                         <div class="rectangle"></div>
@@ -115,7 +118,7 @@
                                         style="font-weight: 300; margin-right: 10px">{{salaryReviews.length}} Positions Reviewed:</span></h3>
                             </div>
                             <div class="flex-item" style="text-align: right;">
-                                <button mat-button color="warn" (click)="openAddSalaryReviewModal()">New Salary Review</button>
+                                <button mat-button color="warn" (click)="openAddSalaryReviewModal()" *ngIf="role == 'ROLE_CLIENT'">New Salary Review</button>
                             </div>
                         </div>
                         <div class="rectangle"></div>
@@ -205,7 +208,7 @@
                                         style="font-weight: 300; margin-right: 10px">{{interviewReviews.length}} Comments:</span></h3>
                             </div>
                             <div class="flex-item" style="text-align: right;">
-                                <button mat-button color="warn" (click)="openAddInterviewReviewModal()">Leave a Comment</button>
+                                <button mat-button color="warn" (click)="openAddInterviewReviewModal()" *ngIf="role == 'ROLE_CLIENT'">Leave a Comment</button>
                             </div>
                         </div>
                         <div class="rectangle"></div>
@@ -269,7 +272,7 @@
                                         style="font-weight: 300; margin-right: 10px">{{jobs.length}} Open Positions:</span></h3>
                             </div>
                             <div class="flex-item" style="text-align: right;">
-                                <button mat-button color="warn" (click)="openAddJobModal()">New Job</button>
+                                <button mat-button color="warn" (click)="openAddJobModal()" *ngIf="currentUser.companyId == cid">New Job</button>
                             </div>
                         </div>
                         <div class="rectangle"></div>

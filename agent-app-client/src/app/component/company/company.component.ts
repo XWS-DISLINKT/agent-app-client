@@ -10,6 +10,8 @@ import { CompanyDto } from 'src/app/model/CompanyDto';
 import { InterviewReviewDto } from 'src/app/model/InterviewReviewDto';
 import { JobDto } from 'src/app/model/JobDto';
 import { SalaryReviewDto } from 'src/app/model/SalaryReviewDto';
+import { UserDto } from 'src/app/model/UserDto';
+import { AuthService } from 'src/app/service/auth.service';
 import { CommentService } from 'src/app/service/comment.service';
 import { CompanyService } from 'src/app/service/company.service';
 import { InterviewReviewService } from 'src/app/service/interview-review.service';
@@ -35,8 +37,11 @@ export class CompanyComponent implements OnInit {
   selectionProcessDuration: number = 0;
   salaryReviewsNumber: number = 0;
   cid : number = 0;
+  role = '';
+  currentUser : UserDto = {id: -1, email:"", role: "", companyId: -1}
+  
 
-  constructor(public matDialog: MatDialog, private companyService: CompanyService, private salaryReviewService: SalaryReviewService, private jobService: JobService, private commentService:CommentService, private interviewReviewService: InterviewReviewService, private route: ActivatedRoute) { }
+  constructor(public matDialog: MatDialog, private companyService: CompanyService, private authService: AuthService, private salaryReviewService: SalaryReviewService, private jobService: JobService, private commentService:CommentService, private interviewReviewService: InterviewReviewService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     var ids = this.route.snapshot.paramMap.get('id');
@@ -61,7 +66,18 @@ export class CompanyComponent implements OnInit {
     this.companyService.getCompany(id).subscribe((response) => {
       this.company = response;
     })
+    this.authService.getUser().subscribe((response) => {
+      this.currentUser = response;
+      if(response != null){
+        this.role = response.role;
+
+      }
+    })
   }
+
+  changeDescription(){}
+
+  connectProfiles(){}
 
   formatEmployeesNumberRange(nr: string){
     if(nr === "BELOW20"){ return "<20"; }
