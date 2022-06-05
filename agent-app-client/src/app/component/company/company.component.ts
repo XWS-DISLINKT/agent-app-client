@@ -34,6 +34,7 @@ export class CompanyComponent implements OnInit {
   interviewReviewRating: number = 0;
   selectionProcessDuration: number = 0;
   salaryReviewsNumber: number = 0;
+  cid : number = 0;
 
   constructor(public matDialog: MatDialog, private companyService: CompanyService, private salaryReviewService: SalaryReviewService, private jobService: JobService, private commentService:CommentService, private interviewReviewService: InterviewReviewService, private route: ActivatedRoute) { }
 
@@ -43,6 +44,7 @@ export class CompanyComponent implements OnInit {
     if(ids){
       id = +ids;
     }
+    this.cid = id;
     this.commentService.getComments(id).subscribe((response) => {
       this.comments = response;
     })
@@ -110,7 +112,11 @@ export class CompanyComponent implements OnInit {
     dialogConfig.id = "add-comment-modal";
     dialogConfig.height = "480px";
     dialogConfig.width = "32%";
+    dialogConfig.data = { companyId: this.cid }
     const modalDialog = this.matDialog.open(AddCommentComponent, dialogConfig);
+    modalDialog.afterClosed().subscribe(result => {
+      location.reload()
+    })
   }
 
   openAddInterviewReviewModal(): void {
@@ -119,7 +125,11 @@ export class CompanyComponent implements OnInit {
     dialogConfig.id = "add-comment-modal";
     dialogConfig.height = "650px";
     dialogConfig.width = "32%";
+    dialogConfig.data = { companyId: this.cid }
     const modalDialog = this.matDialog.open(AddInterviewReviewComponent, dialogConfig);
+    modalDialog.afterClosed().subscribe(result => {
+      location.reload()
+    })
   }
 
   openAddSalaryReviewModal(): void {
@@ -128,7 +138,11 @@ export class CompanyComponent implements OnInit {
     dialogConfig.id = "add-comment-modal";
     dialogConfig.height = "400px";
     dialogConfig.width = "32%";
+    dialogConfig.data = { companyId: this.cid }
     const modalDialog = this.matDialog.open(AddSalaryReviewComponent, dialogConfig);
+    modalDialog.afterClosed().subscribe(result => {
+      location.reload()
+    })
   }
 
   openAddJobModal(): void {
@@ -137,6 +151,11 @@ export class CompanyComponent implements OnInit {
     dialogConfig.id = "add-comment-modal";
     dialogConfig.height = "600px";
     dialogConfig.width = "32%";
+    dialogConfig.data = { companyId: this.cid }
     const modalDialog = this.matDialog.open(AddJobComponent, dialogConfig);
+    modalDialog.afterClosed().subscribe(result => {
+      location.reload()
+    })
+    
   }
 }
