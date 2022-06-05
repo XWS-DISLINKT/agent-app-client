@@ -3,6 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { NewSalaryReviewDto } from 'src/app/model/NewSalaryReviewDto';
+import { SalaryReviewService } from 'src/app/service/salary-review.service';
 
 export interface DialogData {
   companyId: number;
@@ -19,7 +21,7 @@ export class AddSalaryReviewComponent implements OnInit {
   public seniorityCtrl: FormControl;
   public salaryCtrl: FormControl;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData,  public dialogRef: MatDialogRef<AddSalaryReviewComponent>) {
+  constructor(private salaryReviewService: SalaryReviewService, @Inject(MAT_DIALOG_DATA) public data: DialogData,  public dialogRef: MatDialogRef<AddSalaryReviewComponent>) {
     this.positionCtrl = new FormControl("", [Validators.required]);
     this.seniorityCtrl = new FormControl("", [Validators.required]);
     this.salaryCtrl = new FormControl("", [Validators.required]);
@@ -32,6 +34,16 @@ export class AddSalaryReviewComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  onSave() {
+    if (this.form.valid) {
+      let dto: NewSalaryReviewDto = {companyId: this.data.companyId, position: this.positionCtrl.value, seniority: this.seniorityCtrl.value, monthlySalaryEur: this.salaryCtrl.value}
+      this.salaryReviewService.createSalaryReview(dto).subscribe((response) => {
+        this.dialogRef.close()
+      })
+
+    }
   }
 
 }
