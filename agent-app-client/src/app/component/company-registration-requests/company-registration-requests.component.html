@@ -38,9 +38,9 @@
                 <br>
                 <div class="flex-container" style="text-align: right;">
                     <button mat-raised-button color="warn"
-                        style="margin-left:28%; width: 20%; margin-block: 2%;">Approve</button>
-                    <button mat-stroked-button color="warn"
-                        style="margin-left:4%; margin-right: 28%; width: 20%; margin-block: 2%;">Reject</button>
+                        style="margin-left:28%; width: 20%; margin-block: 2%;" (click)="approveRequest(request.id)">Approve</button>
+                    <!-- <button mat-stroked-button color="warn"
+                        style="margin-left:4%; margin-right: 28%; width: 20%; margin-block: 2%;">Reject</button> -->
                 </div>
             </div>
         </div>

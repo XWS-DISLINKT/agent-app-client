@@ -30,4 +30,10 @@ export class CompanyRegistrationRequestsComponent implements OnInit {
     return "";
   }
 
+  approveRequest(id: number){
+    this.companyService.approveCompany(id, true).subscribe((response) => {
+      location.reload();
+    })
+  }
+
 }

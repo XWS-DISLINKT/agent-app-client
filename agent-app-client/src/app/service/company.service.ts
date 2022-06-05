@@ -31,4 +31,11 @@ export class CompanyService {
   registerCompany(dto: NewCompanyDto) {
     return this._http.post(environment.apiUrl + "/company", dto, {headers: this.headers});
   }
+
+  approveCompany(companyId: number, isApproved: boolean){
+    return this._http.post(environment.apiUrl + "/company/response", {
+      companyId: companyId,
+      isApproved: isApproved
+    }, {headers: this.headers});
+  }
 }
