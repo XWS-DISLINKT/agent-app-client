@@ -8,6 +8,7 @@ import { JobService } from 'src/app/service/job.service';
 
 export interface DialogData {
   companyId: number;
+  token: string;
 }
 
 @Component({
@@ -23,6 +24,8 @@ export class AddJobComponent implements OnInit {
   public dateCtrl: FormControl;
   public locationCtrl: FormControl;
   public descriptionCtrl: FormControl;
+  public shareCtrl: FormControl;
+  public disabled = false;
 
   constructor(private jobService: JobService, @Inject(MAT_DIALOG_DATA) public data: DialogData,  public dialogRef: MatDialogRef<AddJobComponent>) {
     this.positionCtrl = new FormControl("", [Validators.required]);
@@ -30,6 +33,11 @@ export class AddJobComponent implements OnInit {
     this.dateCtrl = new FormControl("", [Validators.required]);
     this.locationCtrl = new FormControl("", [Validators.required]);
     this.descriptionCtrl = new FormControl("", []);
+    this.shareCtrl = new FormControl(false, []);
+    if(this.data.token == ""){
+      this.disabled = true;
+    }
+
 
     this.form = new FormGroup({
       'positionCtrl': this.positionCtrl,
@@ -37,6 +45,7 @@ export class AddJobComponent implements OnInit {
       'dateCtrl': this.dateCtrl,
       'locationCtrl': this.locationCtrl,
       'descriptionCtrl': this.descriptionCtrl,
+      'shareCtrl': this.shareCtrl,
     })
   }
 
@@ -47,6 +56,7 @@ export class AddJobComponent implements OnInit {
     if (this.form.valid) {
       let dto: NewJobDto = {closingDate: this.dateCtrl.value, description: this.descriptionCtrl.value, location: this.locationCtrl.value, position: this.positionCtrl.value, seniority: this.seniorityCtrl.value}
       this.jobService.createJob(dto).subscribe((response) => {
+        alert(this.shareCtrl.value)
         this.dialogRef.close()
       })
 

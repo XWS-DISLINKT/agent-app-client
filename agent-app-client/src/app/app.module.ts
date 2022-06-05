@@ -19,6 +19,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -79,6 +80,7 @@ import { ConnectProfilesComponent } from './modal/connect-profiles/connect-profi
     MatTabsModule,
     MatProgressBarModule,
     MatDatepickerModule,
+    MatSlideToggleModule,
     FormsModule,
     ReactiveFormsModule
     

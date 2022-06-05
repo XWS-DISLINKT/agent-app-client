@@ -6,6 +6,7 @@
         </div>
         <br>
         <form [formGroup]="form">
+            <mat-slide-toggle color="primary" [disabled]="disabled" formControlName="shareCtrl">Share On Dislinked</mat-slide-toggle>
             <div>
                 <mat-form-field appearance="legacy" style="width: 100%;">
                     <mat-label>Position</mat-label>
