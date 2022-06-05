@@ -4,6 +4,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { NewCompanyDto } from 'src/app/model/NewCompanyDto';
+import { CompanyService } from 'src/app/service/company.service';
 
 @Component({
   selector: 'app-company-registration',
@@ -24,7 +26,7 @@ export class CompanyRegistrationComponent implements OnInit {public errorMessage
 
   public PHONE_NUMBER_PATTERN: string = "[0-9+ /]*";
 
-  constructor(private router: Router, private _snackBar: MatSnackBar) {
+  constructor(private router: Router, private companyService: CompanyService) {
     this.errorMessage = "";
 
     this.nameCtrl = new FormControl("", [Validators.required]);
@@ -52,7 +54,12 @@ export class CompanyRegistrationComponent implements OnInit {public errorMessage
 
   onRegister() {
     if (this.form.valid) {
-      //TODO
+      let dto: NewCompanyDto = {about: this.aboutCtrl.value, email: this.emailCtrl.value, employeesNumberRange: this.employeesCtrl.value, id: 105, industry: this.industryCtrl.value, isApproved: false, location: this.websiteCtrl.value, name: this.nameCtrl.value, phoneNumber: this.phoneNumberCtrl.value}
+      this.companyService.registerCompany(dto).subscribe((response) => {
+        this.router.navigate(['/companies']).then(()=>{
+          location.reload()});
+      })
+
     }
   }
 

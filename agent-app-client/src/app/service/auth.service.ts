@@ -24,7 +24,9 @@ export class AuthService {
           localStorage.setItem('jwt', response.accessToken);
           console.log(response.accessToken)
           this.router.navigate(['/companies']).then(()=>{
-            location.reload()});
+            //location.reload();
+            console.log(localStorage.getItem('jwt'));
+          });
         },
         error: (error: HttpErrorResponse) => {
         }
