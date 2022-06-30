@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  agent-app-service:
+    image: agent-app-service
+    container_name: agent-app-service
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    restart: on-failure
+    ports:
+      - "5000:4200"
+    networks:
+      - network
+
+networks:
+  network:
+    driver: bridge
